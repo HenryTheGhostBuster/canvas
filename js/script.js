@@ -56,17 +56,17 @@ class Token {
 
     spawnRandom(gameObjects) {
 
-        // dejau
+        // dėjau
         let x = 0;
         let y = 0;
 
         x = Math.floor(Math.random() * gui.gameScreen.clientWidth);
         y = Math.floor(Math.random() * gui.gameScreen.clientHeight);
         
-        if (x < 50 && x < gui.gameScreen.clientWidth)
+        while (x < 50 && x < gui.gameScreen.clientWidth)
             x = Math.floor(Math.random() * gui.gameScreen.clientWidth);
     
-        if (y < 50 && y < gui.gameScreen.clientHeight)
+        while (y < 50 && y < gui.gameScreen.clientHeight)
             y = Math.floor(Math.random() * gui.gameScreen.clientHeight);
 
         this.x = x;
@@ -146,8 +146,6 @@ const gameData = {
     playerMoveDirection: ''
 };
 
-// const playerData = {};
-
 // New game screen frame
 function frame() {
     if (gameData.running) {
@@ -196,10 +194,10 @@ function updateGameData() {
             gameData.objects.player.collidedWith(gameData.objects.obstacles[0]) ||
             gameData.objects.player.collidedWith(gameData.objects.obstacles[1]) ||
             gameData.objects.player.collidedWith(gameData.objects.obstacles[2]) ||
-            gameData.objects.player.collidedWith({x:0, y:0, width:10, height:gui.gameScreen.clientHeight}) ||
-            gameData.objects.player.collidedWith({x:0, y:0, width:gui.gameScreen.clientHeight, height:10}) ||
-            gameData.objects.player.collidedWith({x:gui.gameScreen.clientWidth - 10, y:0, width: 10, height: gui.gameScreen.clientHeight}) ||
-            gameData.objects.player.collidedWith({x:0, y:gui.gameScreen.clientHeight - 10, width: gui.gameScreen.clientWidth, height: 10})
+            gameData.objects.player.collidedWith({x:0, y:0, width:5, height:gui.gameScreen.clientHeight}) ||
+            gameData.objects.player.collidedWith({x:0, y:0, width:gui.gameScreen.clientHeight, height:5}) ||
+            gameData.objects.player.collidedWith({x:gui.gameScreen.clientWidth, y:0, width: 5, height: gui.gameScreen.clientHeight}) ||
+            gameData.objects.player.collidedWith({x:0, y:gui.gameScreen.clientHeight, width: gui.gameScreen.clientWidth, height: 5})
         ) {
             playerLost();
         }
