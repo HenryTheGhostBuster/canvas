@@ -21,6 +21,7 @@ body .container {
   max-width: 800px;
   height: 100vh;
   margin: auto;
+  position: relative;
 }
 
 body .container .scoreWrapper {
@@ -34,6 +35,17 @@ body .container .scoreWrapper {
   margin-bottom: 30px;
   padding: 10px;
   font-size: 28px;
+}
+
+body .container .overlay {
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 3;
+  font-size: 48px;
+  font-family: inherit;
 }
 
 body .container canvas {
